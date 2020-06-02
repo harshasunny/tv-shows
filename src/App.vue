@@ -1,32 +1,30 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar app clipped-left>
+      <v-btn to="/" exact>
+        <v-toolbar-title>TV Shows</v-toolbar-title>
+      </v-btn>
+    </v-app-bar>
+
+    <v-content>
+      <router-view></router-view>
+    </v-content>
+    <v-footer app>
+      <span>&copy; 2020</span>
+    </v-footer>
+  </v-app>
 </template>
-
+<script>
+export default {
+  created() {
+    this.$vuetify.theme.dark = true;
+  },
+  methods: {
+    dashboardLink () {
+      this.$router.push('/')
+    }
+  }
+};
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
