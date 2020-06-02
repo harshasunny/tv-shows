@@ -26,9 +26,6 @@ export default {
       tvShowsLoading: 'tvShowsLoading'
     })
   },
-  data: () => ({
-    searchValue: ''
-  }),
   created() {
     this.getTvShows();
   },

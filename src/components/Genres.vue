@@ -15,7 +15,7 @@ import { capitalize } from "../filters";
 
 export default {
   data: () => ({
-    selected: "popular",
+    selected: "Popular",
     categories: ["Popular", "Comedy", "Drama", "Crime", "Thriller", "Fantasy", "Action", "War", "Medical"]
   }),
   filters: {
