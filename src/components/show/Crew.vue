@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-row>
-      <v-col v-for="(person, i) in crew" :key="i" class="d-flex child-flex" cols="3">
+      <v-col v-for="(person, i) in showData._embedded.crew" :key="i" class="d-flex child-flex" cols="3">
         <v-card  class="mx-auto" max-width="200" align="center">
           <!-- <v-icon size="xl" v-if="person.person.image === null">mdi-account</v-icon> -->
           <v-img src="@/assets/no-poster.png" v-if="person.person.image === null"  class="white--text align-end"></v-img>
@@ -25,11 +25,6 @@
 
 <script>
 export default {
-  props: ["showData"],
-  computed: {
-    crew() {
-      return this.showData._embedded.crew;
-    }
-  }
+  props: ["showData"]
 };
 </script>

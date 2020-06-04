@@ -7,7 +7,7 @@ describe("Check Genres.vue component", () => {
   let wrapper;
   beforeEach(() => {
     Vue.use(Vuetify);
-    wrapper = shallowMount(Genres, {
+    wrapper = shallowMount(Genres, { 
       Vue
     });
   });
@@ -29,6 +29,12 @@ describe("Check Genres.vue component", () => {
     const genre = wrapper.find(".ma-2:nth-child(1)");
     expect(genre.text()).toContain("Popular");
   });
+
+  it('should trigger function genreSelected', () => {
+    wrapper.vm.genreSelected('Comedy')
+    expect(wrapper.vm.selected).toContain('Comedy');
+  });
+
   afterEach(() => {
     wrapper.destroy();
   });

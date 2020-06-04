@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="4">
-        <v-img class="white--text align-end" height="500px" :src="OriginalPostar">
+        <v-img class="white--text align-end" height="500px" :src="showData.image.original">
           <template v-slot:placeholder>
             <v-row class="fill-height ma-0" align="center" justify="center">
               <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
@@ -76,13 +76,6 @@ import { arrayToList } from '../../filters'
 
 export default {
   props: ["showData"],
-  computed: {
-    OriginalPostar() {
-      let originalPostar = '';
-      originalPostar = this.showData.image.original
-      return originalPostar;
-    }
-  },
   filters: {
     arrayToList
   }
