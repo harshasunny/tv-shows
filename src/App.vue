@@ -17,12 +17,7 @@
 <script>
 export default {
   created() {
-    this.$vuetify.theme.dark = true;
-  },
-  methods: {
-    dashboardLink () {
-      this.$router.push('/')
-    }
+    this.$vuetify.theme.dark = false;
   }
 };
 </script>

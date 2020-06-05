@@ -6,6 +6,10 @@ TV shows is your reference guide to episodes, photos, cast and crew information,
 
 #### Vue.js
 Vue.js is progressive javascript framework, which is lightweight, modular and provide flexible development environment.
+
+##### Why Vue.js
+It is new and smaller in size. It has taken the best features from Angular & React and It has been learning from the mistakes and successes of React & Angular. It is developer friendly, popular and choosen by many developers.
+
 #### Vue cli
 Standard Tooling for Vue.js Development. Ref [Vue.js](https://cli.vuejs.org/)
 #### Vuetify

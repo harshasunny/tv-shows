@@ -63,8 +63,5 @@ export default new Vuex.Store({
           commit('LOADING_TV_SHOWS', false)
         })
     }
-  },
-  getters: {
-    
   }
 })

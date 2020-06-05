@@ -26,7 +26,7 @@ export default {
     sortedTvShows: [],
     currentPage: 1,
     totalPages: 0,
-    perPage: 10,
+    perPage: 12,
     startIndex: 0,
     recordsOnPage: []
   }),
