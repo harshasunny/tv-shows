@@ -15,11 +15,7 @@
   </v-app>
 </template>
 <script>
-export default {
-  created() {
-    this.$vuetify.theme.dark = false;
-  }
-};
+export default {};
 </script>
 <style>
 </style>

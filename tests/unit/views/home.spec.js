@@ -1,5 +1,5 @@
 import { shallowMount, createLocalVue, mount } from "@vue/test-utils";
-import Vuex from "vuex";
+import Vuex, { mapMutations } from "vuex";
 
 import Vue from "vue";
 import Vuetify from "vuetify";
@@ -18,9 +18,21 @@ describe("Check Home component", () => {
   let actions = {
     tvShows: jest.fn(),
   };
+  let state = {
+    tvShows: [],
+    tvShowsLoading: false
+  }
+  let mutations = {
+    'LOADING_TV_SHOWS': jest.fn(),
+    'UPDATE_TV_SHOWS_DATA': jest.fn()
+  }
+
+  let commit = jest.fn()
 
   let store = new Vuex.Store({
-    actions
+    actions,
+    state,
+    mutations
   });
 
   beforeEach(() => {
@@ -57,6 +69,17 @@ describe("Check Home component", () => {
   it("it should have a Genres", () => {
     expect(wrapper.html()).toContain("genres-stub");
   });
+
+  it('is selecting genre Comedy', () => {
+    wrapper.vm.genreSelected('Comedy')
+    expect(actions.tvShows).toHaveBeenCalled();
+  })
+
+  it('is selecting genre Comedy for commit', () => {
+    wrapper.vm.genreSelected('Comedy')
+    expect(wrapper.vm.tvShowsLoading).toBe(false)
+  })
+
 
   describe("it should load Genres component", () => {
     it("it should load the Genres", () => {

@@ -20,8 +20,25 @@ describe("Check Show component", () => {
     getTvShowById: jest.fn(),
     removeShowData: jest.fn()
   };
+  let state = {
+    tvShowData: {
+      _embedded: {
+        images: [
+          {
+            type: 'background',
+            resolutions: {
+              original: {
+                url: 'http://static.tvmaze.com/uploads/images/original_untouched/249/624486.jpg'
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
 
   let store = new Vuex.Store({
+    state,
     actions
   });
 
@@ -42,9 +59,20 @@ describe("Check Show component", () => {
     wrapper.destroy();
   });
 
-  it("it should have a v-progress-circular", () => {
-    expect(wrapper.html()).toContain("v-progress-circular-stub");
+  it("it should have a v-img", () => {
+    expect(wrapper.html()).toContain("v-img-stub");
+
   });
+
+  it('check background image by triggering backgrounndImage', () => {
+    expect(wrapper.vm.backgrounndImage).toEqual('http://static.tvmaze.com/uploads/images/original_untouched/249/624486.jpg')
+    state.tvShowData._embedded.images = [
+      {
+        type: 'banner'
+      }      
+    ]
+    expect(wrapper.vm.backgrounndImage).toEqual('')
+  })
   
   describe("it should load about component", () => {
     it("it should load the about", () => {

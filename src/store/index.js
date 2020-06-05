@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-import CONFIG from './config';
 
 Vue.use(Vuex)
+
+const CONFIG = {
+  API: 'http://api.tvmaze.com'
+}
 
 export default new Vuex.Store({
   state: {
