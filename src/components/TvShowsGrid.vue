@@ -32,12 +32,12 @@ export default {
   }),
   watch: {
     currentPage(newVal) {
-      this.filterRecords(newVal);
+      this.arrangeRecords(newVal);
     }
   },
   created() {
     this.sortTvShows();
-    this.filterRecords(this.currentPage);
+    this.arrangeRecords(this.currentPage);
     this.totalPages = Math.ceil(this.tvShowsData.length / this.perPage);
   },
   methods: {
@@ -48,7 +48,7 @@ export default {
       });
       this.sortedTvShows = sortedData;
     },
-    filterRecords(currentPage) {
+    arrangeRecords(currentPage) {
       this.startIndex = this.perPage * currentPage - this.perPage;
       this.endIndex = this.perPage * currentPage;
       this.recordsOnPage = this.sortedTvShows.slice(
